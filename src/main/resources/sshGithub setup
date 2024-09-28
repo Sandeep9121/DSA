@@ -1,0 +1,42 @@
+ssh-keygen -t ed25519 -C "sandeep.rayala14@gmail.com"
+
+    it will ask for path or keyphrase just enter
+    enter  go with empty
+
+ eval "$(ssh-agent -s)"
+
+        start the agent  in the background
+
+  there will be an .ssh folder will be create may be hidden if you using mac com+shift+.
+     now you will have .pub file and another file key file got created
+
+   but you need to create one more file called config
+       you need to open the folder and the nano or touch
+
+       open ~/.ssh/config
+   it doesnt exist just create it
+
+     nano ~/.ssh/config
+        copy paste this
+
+        Host github.com
+          AddKeysToAgent yes
+          UseKeychain yes
+          IdentityFile ~/.ssh/id_ed25519
+
+write ^X and then YES then enter..
+
+ssh-add --apple-use-keychain ~/.ssh/id_ed25519
+
+then open the .pub file and copy that generated text
+   open github setting ssh -> add new ssh
+        add that key name it save it
+
+  come to your local add  create a github repo and set add
+
+remote set-url origin git@github.com:Sandeep9121/DSA.git
+
+you can play with git hub command now ....
+
+
+
