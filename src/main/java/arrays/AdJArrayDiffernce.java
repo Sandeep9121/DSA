@@ -103,6 +103,27 @@ The second largest number
 
 
 
+    public void rotateArrayGFG(){
+        int[] arr={2,4,6,8,10,12,14,16,18,20};
+        int d=3;
+        int n=arr.length;
+        for(int i=0;i<=d;i++){
+
+            int last=arr[n-1];
+            for(int j=n-1;j>0;j--){
+                arr[j]=arr[j-1];
+            }
+            arr[0]=last;
+
+        }
+
+        for(int i: arr){
+            System.out.print(i +" ");
+        }
+
+
+
+    }
 
 
 

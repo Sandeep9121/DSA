@@ -10,10 +10,12 @@ public class PrintPatterns {
         // printPyramid();
         //printPyramidNuuuu();
       //  countEvenOdd();
-
+        //PrintPatterns p=new PrintPatterns();
         //hallowPyramid();
 
-        fullNumericPyramid();
+      //  fullNumericPyramid();
+
+
     }
 
 
@@ -160,6 +162,8 @@ public class PrintPatterns {
         }
 
     }
+
+
 
 
 
