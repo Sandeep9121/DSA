@@ -2,10 +2,9 @@ package Striver79;
 
 public class KadanesAlgo {
 
-    public static long maxSubarraySum(int[] arr, int n) {
+    public static long maxSubarraySum(int[] arr, int n){
         long max = Long.MIN_VALUE;
         long sum = 0;
-
         for (int i = 0; i < n; i++) {
             sum += arr[i];
             if (sum > max) {
