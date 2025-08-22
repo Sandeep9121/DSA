@@ -1,7 +1,7 @@
 package arrays;
 
 public class PrefixSum {
-
+   private int prifixsum=10;
 
     /*
 
