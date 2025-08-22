@@ -32,7 +32,7 @@ public class MaintainEqualsHashcodeContractInHashMap {
         empMap.put(em1,1);
         empMap.put(em2,1);
         empMap.put(em3,1);
-        //all the above employees sit in one bucket 
+        //all the above employees sit in one bucket
 
         empMap.entrySet().stream().forEach(x->{
             System.out.println(x.getKey()+":"+x.getValue());
@@ -42,5 +42,30 @@ public class MaintainEqualsHashcodeContractInHashMap {
         // you’ll cause too many collisions, which hurts performance:
         //Instead of O(1) lookup, it degrades toward O(n) per bucket.
 
+
+        // Let say Equals method is always giving a false we are try to break the below conditon
+        // in Student class we alway return false for equal objects
+//        If a.equals(b) is true, then a.hashCode() == b.hashCode() must be true.
+// This is mandatory — otherwise collections like HashMap, HashSet, ConcurrentHashMap break.
+
+        Student s=new Student(1,"student");
+        Student s1=new Student(1,"student");
+        Student s2=new Student(1,"student");
+
+        HashMap<Student,Integer> sMap=new HashMap<Student,Integer>();
+        sMap.put(s,1);
+        sMap.put(s1,2);
+        sMap.put(s2,3);
+        System.out.println("Student map with equals is always false ");
+        sMap.entrySet().stream().forEach(x->{
+            System.out.println(x.getKey()+":"+x.getValue());
+        });
+
+        /*
+        out put breaking the map duplicate entries
+Student{sid=1, name='student'}:1
+Student{sid=1, name='student'}:2
+Student{sid=1, name='student'}:3
+         */
     }
 }
