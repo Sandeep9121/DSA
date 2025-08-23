@@ -14,6 +14,22 @@ class BankAccount {
     }
 
 
+    public   void withdrawExplicitLock(int amount) {
+        if (balance >= amount) {
+            System.out.println(Thread.currentThread().getName() + " is withdrawing " + amount);
+            balance -= amount;
+            System.out.println("Balance left: " + balance);
+        } else {
+            System.out.println("Insufficient funds for " + Thread.currentThread().getName());
+        }
+    }
+
+
+    //look for lock good explaination https://www.youtube.com/watch?v=ay5ynKnI9vc
+    //un fair lock https://www.youtube.com/watch?v=Iv5cP97OXlA
+    //
+    //https://www.youtube.com/watch?v=Ee42spqUzbE
+
     public static void main(String[] args) {
         BankAccount account = new BankAccount();
 
