@@ -25,7 +25,7 @@ public class SwitchCase {
 
     public static void main(String[] args) {
 
-        System.out.println(switchcase(Month.JUN));
+        System.out.println(switchcase(Month.JUL));
 
     }
 }
