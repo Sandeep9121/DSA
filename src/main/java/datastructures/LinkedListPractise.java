@@ -24,10 +24,22 @@ public class LinkedListPractise {
         size += 1;
     }
 
+
+    public void insertLast(int val){
+        if(tail==null){
+            insertFirst(val);
+            return;
+        }
+        Node node =new Node(val);
+        tail.next=node;
+        tail=node;
+
+        size +=1;
+    }
     public void display(){
         Node temp=head;
         while(temp!=null){
-            System.out.println(temp.value+"->");
+            System.out.print(temp.value+"->");
             temp=temp.next;
         }
     }
@@ -53,6 +65,8 @@ public class LinkedListPractise {
 
         LinkedListPractise lls=new LinkedListPractise();
         lls.insertFirst(2);
+        lls.insertFirst(3);
+        System.out.println(lls.head.value);
 
         lls.display();
 
