@@ -2,7 +2,7 @@ package multithreading;
 
 public class ResourceSharing {
 
-    public  void useResource(String threadName){
+    public  synchronized void useResource(String threadName){
         System.out.println(threadName +" using the resource");
         try {
             Thread.sleep(500);
