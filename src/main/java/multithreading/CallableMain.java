@@ -1,8 +1,17 @@
 package multithreading;
 
 import java.util.concurrent.Callable;
+import java.util.concurrent.CountDownLatch;
 
-public class CallableMain implements Callable {
+public class CallableMain implements Callable<String > {
+
+
+
+    final CountDownLatch latch;
+
+    public CallableMain(CountDownLatch latch) {
+        this.latch = latch;
+    }
 
 
     /**
@@ -13,7 +22,13 @@ public class CallableMain implements Callable {
      */
     @Override
     public String  call() throws Exception {
-        Thread.sleep(1000);
+
+        try {
+            Thread.sleep(4000);
+            System.out.println(Thread.currentThread().getName()+" ServiceStarted ");
+        }finally {
+            latch.countDown();
+        }
         System.out.println(Thread.currentThread().getName()+" ServiceStarted ");
         return null;
     }
