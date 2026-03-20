@@ -14,8 +14,7 @@ public class ResourceSharing {
 
 
     public static void main(String[] args) {
-         ResourceSharing rs=new ResourceSharing();
-
+        ResourceSharing rs=new ResourceSharing();
         Runnable task = ()->{
             for (int i = 0; i < 3; i++) {
                 rs.useResource(Thread.currentThread().getName());
@@ -24,10 +23,10 @@ public class ResourceSharing {
 
         Thread t1=new Thread(task,"t1");
         Thread t2=new Thread(task,"t2");
-
         t1.start();
+       // t1.start(); illegal thread exception
+        //t1.run();
         t2.start();
-
 
 
     }
