@@ -7,22 +7,31 @@ import java.util.concurrent.locks.ReentrantLock;
 
 public class Reetrannnnt {
 
-    private final Lock rLock = new ReentrantLock();
+    private final Lock rLock = new ReentrantLock(true);
 
 
     public void m1() throws InterruptedException {
 
-        if(rLock.tryLock(500,TimeUnit.MILLISECONDS)) {
+        if(rLock.tryLock()) {
             try {
                 System.out.println(Thread.currentThread().getName() + " Acquired");
                 // thread 2 sometime not acquired  introduce some delay using random
+            }catch (Exception interruptedException){
+                System.out.println("interrrupt");
+                Thread.currentThread().interrupt();
             }finally {
                 rLock.unlock();
             }
 
         }else {
+           // Thread.currentThread().stop();  if current thread got stopped we can interrupt its state
             System.out.println(Thread.currentThread().getName() + " Not Acquired");
         }
+
+        if(Thread.currentThread().isInterrupted()){
+            System.out.println(Thread.currentThread().getName() + " got  interrrupted do some clean up operations");
+        }
+
 
     }
 
