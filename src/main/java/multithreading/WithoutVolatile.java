@@ -22,7 +22,7 @@ public class WithoutVolatile extends Thread {
             WithoutVolatile demo = new WithoutVolatile();
             demo.start();
             Thread.sleep(1000);
-            demo.stopRunning();  // main thread sets running=false    but fails to notify the other thread
+            demo.stopRunning();  // StreamMain thread sets running=false    but fails to notify the other thread
             // if you make the scope of a runner as a volatile
         }
 
